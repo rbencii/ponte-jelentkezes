@@ -48,3 +48,4 @@ A telepítéshez a project-manager mappából kell a következő parancsokat lef
 Ezután a localhost 4173-as portján lesz elérhető. http://localhost:4173/
 
 A git history azért nem részletes mert egyhuzamban kódoltam le az egészet. Ezért elnézést kérek.
+Online telepítés nélkül elérhető a felület vercelen https://ponte-react.vercel.app/

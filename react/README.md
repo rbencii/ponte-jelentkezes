@@ -1,4 +1,4 @@
-# ponte react feladat
+# Ponte react feladat leírása
 Cél: 
 Egy olyan applikáció létrehozása, amely a cégen belüli különböző projektekkel kapcsolatos információk kezelésére és áttekintésére alkamas.
 
@@ -33,3 +33,16 @@ Követelmények:
 -	Legyen egy Fordítási és Futtatási dokumentáció a README.md fájlban a projekt gyökér mappájában
 
 Jó munkát kívánunk! :)
+
+# Telepítés és futtatás
+
+A telepítéshez a project-manager mappából kell a következő parancsokat lefuttatni:
+
+1. A dependenciák telepítése:
+`npm i`
+2. Az applikáció "fordítása":
+`npm run build`
+3. Az applikáció futtatása:
+`npm run preview`
+
+Ezután a localhost 4173-as portján lesz elérhető. http://localhost:4173/

@@ -1,0 +1,85 @@
+{
+    "data": [
+        {
+            "image": "gyarprojekt.png",
+            "title": "Gyár Projekt",
+            "description": "A Gyár Projekt egy olyan weboldal, amelyen a felhasználók megoszthatják egymással a saját ötleteiket, és a többiek véleményezhetik azokat. A weboldal egyik legfontosabb eleme a kereső, amely segítségével a felhasználók könnyen megtalálhatják azokat az ötleteket, amelyek érdeklik őket.",
+            "colleagues": [{
+                "name": "Kiss János",
+                "position": "Fejlesztő",
+                "idx": "0"
+            },
+            {
+                "name": "Nagy Béla",
+                "position": "Fejlesztő",
+                "idx": "1"
+            }
+            ],
+            "links": [{
+                "name": "GitHub",
+                "url": "github.com",
+                "idx": "0"
+            },
+            {
+                "name": "Trello",
+                "url": "trello.com",
+                "idx": "1"
+            }
+            ]
+        },
+        {
+            "image": "jarmuprojekt.png",
+            "title": "Jármű Projekt",
+            "description": "A Jármű Projekt egy olyan weboldal, amelyen a felhasználók megoszthatják egymással a saját járműveiket, és a többiek véleményezhetik azokat. A weboldal egyik legfontosabb eleme a kereső, amely segítségével a felhasználók könnyen megtalálhatják azokat a járműveket, amelyek érdeklik őket."
+        ,"colleagues": [{
+            "name": "Kiss János",
+            "position": "Fejlesztő",
+            "idx": "0"
+        },
+        {
+            "name": "Nagy Béla",
+            "position": "Fejlesztő",
+            "idx": "1"
+        }
+        ],
+        "links": [{
+            "name": "GitHub",
+            "url": "github.com",
+            "idx": "0"
+        },
+        {
+            "name": "Trello",
+            "url": "trello.com",
+            "idx": "1"
+        }
+        ]
+        },
+        {
+            "image": "tesztprojekt.png",
+            "title": "Teszt Projekt",
+            "description": "A Teszt Projekt egy olyan weboldal, amelyen a felhasználók megoszthatják egymással a saját tesztjeiket, és a többiek véleményezhetik azokat. A weboldal egyik legfontosabb eleme a kereső, amely segítségével a felhasználók könnyen megtalálhatják azokat a teszteket, amelyek érdeklik őket."
+            ,"colleagues": [{
+                "name": "Kiss János",
+                "position": "Fejlesztő",
+                "idx": "0"
+            },
+            {
+                "name": "Nagy Béla",
+                "position": "Fejlesztő",
+                "idx": "1"
+            }
+            ],
+            "links": [{
+                "name": "GitHub",
+                "url": "github.com",
+                "idx": "0"
+            },
+            {
+                "name": "Trello",
+                "url": "trello.com",
+                "idx": "1"
+            }
+            ]
+        }
+    ]
+}

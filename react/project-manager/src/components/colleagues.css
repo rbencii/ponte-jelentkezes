@@ -1,0 +1,45 @@
+.list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    margin: 0 auto;
+    gap: 1rem;
+    max-width: 40rem;
+    position: relative;
+}
+
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+h1
+{
+    color: var(--col);
+    text-align: center;
+}
+
+.right{
+    margin: 8rem auto 0 auto;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    max-width: 40rem;
+}
+
+.right:has(.fabsolute){
+    margin: 1rem auto;
+}
+
+.fabsolute{
+    cursor: pointer;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}

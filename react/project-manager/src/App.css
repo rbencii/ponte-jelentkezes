@@ -1,0 +1,9 @@
+#root {
+  background: var(--bg);
+  color: var(--txt);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}

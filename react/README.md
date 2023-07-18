@@ -46,3 +46,5 @@ A telepítéshez a project-manager mappából kell a következő parancsokat lef
 `npm run preview`
 
 Ezután a localhost 4173-as portján lesz elérhető. http://localhost:4173/
+
+A git history azért nem részletes mert egyhuzamban kódoltam le az egészet. Ezért elnézést kérek.

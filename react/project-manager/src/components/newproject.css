@@ -32,5 +32,5 @@ h1
     display: flex;
     justify-content: end;
     align-items: end;
-    gap: 4rem;
+    gap: 2rem;
 }

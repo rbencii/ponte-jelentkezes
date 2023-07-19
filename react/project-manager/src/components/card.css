@@ -26,7 +26,7 @@ img {
 .card-content{
     padding: 0.5rem 1rem 1rem 1rem;
     display: flex;
-    flex: 1;
+    height: 50%;
     flex-direction: column;
     gap: 0.5rem;
     word-wrap: break-word;

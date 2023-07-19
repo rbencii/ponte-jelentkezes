@@ -19,7 +19,7 @@
     background: white;
     border-radius: 1.5rem;
     overflow:  hidden;
-    outline: 1.4px solid var(--col)
+    outline: 2.5px solid var(--col)
 }
 
 .wizard-progress-bar{

@@ -1,6 +1,7 @@
 package hu.ponte.hr.controller;
 
 
+import hu.ponte.hr.model.ImageMeta;
 import hu.ponte.hr.services.ImageStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

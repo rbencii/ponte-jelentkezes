@@ -21,6 +21,12 @@ public class UploadController
     @Autowired
     private ImageStore imageStore;
 
+    /**
+     * A fájl aláírása és tárolása
+     * @param file a kép
+     * @param response küldött válasz
+     * @throws Exception Exception
+     */
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
     public void handleFormUpload(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws Exception {

@@ -17,9 +17,9 @@ public class SignService {
     /**
      * A privát kulcs betöltése resources mappa megfelelő részéből
      * @return a privát kulcs
-     * @throws IOException
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
+     * @throws IOException IOException
+     * @throws NoSuchAlgorithmException NoSuchAlgorithmException
+     * @throws InvalidKeySpecException InvalidKeySpecException
      */
     private PrivateKey getPrivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
             byte[] _pkey = Objects.requireNonNull(getClass().getResourceAsStream("/config/keys/key.private")).readAllBytes();
@@ -32,9 +32,9 @@ public class SignService {
     /**
      * A publikus kulcs betöltése resources mappa megfelelő részéből
      * @return a publikus kulcs
-     * @throws IOException
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
+     * @throws IOException IOException
+     * @throws NoSuchAlgorithmException NoSuchAlgorithmException
+     * @throws InvalidKeySpecException InvalidKeySpecException
      */
     private PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
             byte[] _pkey = Objects.requireNonNull(getClass().getResourceAsStream("/config/keys/key.pub")).readAllBytes();
@@ -48,7 +48,7 @@ public class SignService {
      * Egy fájl aláírása
      * @param file a MultipartFile kép
      * @return Az aláírt fájl base64 string-je
-     * @throws Exception
+     * @throws Exception Exception
      */
     public String signFile(MultipartFile file) throws Exception {
 
@@ -66,7 +66,7 @@ public class SignService {
      * @param file a MultipartFile kép
      * @param b64 Az aláírt fájl base64 string-je
      * @return az ellenőrzés eredménye
-     * @throws Exception
+     * @throws Exception Exception
      */
     public Boolean verify(MultipartFile file, String b64) throws Exception {
 

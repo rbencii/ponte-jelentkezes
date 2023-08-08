@@ -39,7 +39,7 @@ public class ImageStore {
      * @param file A kérésből kapott MultipartFile kép
      * @param digitalSign Az aláírt fájl base64 stringje
      * @return 1
-     * @throws Exception
+     * @throws Exception Exception
      */
     public int addImage(MultipartFile file, String digitalSign) throws Exception{
         int metaId = id.incrementAndGet();
@@ -60,7 +60,7 @@ public class ImageStore {
      * Egy kép lekérése id alapján
      * @param id A kép azonosítója
      * @return byte tömb / a kép
-     * @throws Exception
+     * @throws Exception Exception
      */
     public byte[] getImageById(String id) throws Exception{
         Optional<ImageModel> img = db.listImages().stream().filter((e)->e.getMeta().getId().equals(id)).findFirst();

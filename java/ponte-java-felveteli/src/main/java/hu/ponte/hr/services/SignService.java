@@ -14,6 +14,13 @@ import java.util.Objects;
 @Service
 public class SignService {
 
+    /**
+     * A privát kulcs betöltése resources mappa megfelelő részéből
+     * @return a privát kulcs
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
     private PrivateKey getPrivateKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
             byte[] _pkey = Objects.requireNonNull(getClass().getResourceAsStream("/config/keys/key.private")).readAllBytes();
             PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(_pkey);
@@ -22,6 +29,13 @@ public class SignService {
             return kf.generatePrivate(spec);
     }
 
+    /**
+     * A publikus kulcs betöltése resources mappa megfelelő részéből
+     * @return a publikus kulcs
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
     private PublicKey getPublicKey() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
             byte[] _pkey = Objects.requireNonNull(getClass().getResourceAsStream("/config/keys/key.pub")).readAllBytes();
             X509EncodedKeySpec spec = new X509EncodedKeySpec(_pkey);
@@ -30,6 +44,12 @@ public class SignService {
             return kf.generatePublic(spec);
     }
 
+    /**
+     * Egy fájl aláírása
+     * @param file a MultipartFile kép
+     * @return Az aláírt fájl base64 string-je
+     * @throws Exception
+     */
     public String signFile(MultipartFile file) throws Exception {
 
         Signature privateSignature = Signature.getInstance("SHA256withRSA");
@@ -41,6 +61,13 @@ public class SignService {
         return new String(_arr);
     }
 
+    /**
+     * Egy fájl aláírásának leellenőrzése
+     * @param file a MultipartFile kép
+     * @param b64 Az aláírt fájl base64 string-je
+     * @return az ellenőrzés eredménye
+     * @throws Exception
+     */
     public Boolean verify(MultipartFile file, String b64) throws Exception {
 
         byte[] signature = Base64.decodeBase64(b64);

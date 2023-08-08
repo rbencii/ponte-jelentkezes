@@ -16,14 +16,31 @@ import java.util.stream.Collectors;
 @Service
 public class ImageStore {
 
+    /**
+     * "Adatbázis" példánya
+     */
     private final DB db;
+    /**
+     * Az id-t osztó AtomicInteger
+     */
     private static final AtomicInteger id = new AtomicInteger(10);
 
+    /**
+     * Konstruktor
+     * @param db DB példány
+     */
     @Autowired
     public ImageStore(DB db) {
         this.db = db;
     }
 
+    /**
+     * Egy kép adatainak feldolgozása és hozzáadása az "adatbázishoz"
+     * @param file A kérésből kapott MultipartFile kép
+     * @param digitalSign Az aláírt fájl base64 stringje
+     * @return 1
+     * @throws Exception
+     */
     public int addImage(MultipartFile file, String digitalSign) throws Exception{
         int metaId = id.incrementAndGet();
         byte[] _arr = Base64.encodeBase64(file.getBytes());
@@ -31,10 +48,20 @@ public class ImageStore {
         return db.insertImageModel(data, new ImageMeta(Integer.toString(metaId),file.getOriginalFilename(),file.getContentType(),file.getSize(),digitalSign));
     }
 
+    /**
+     * A DB listája elemeinek csak az ImageMeta-k kilistázása
+     * @return ImageMeta lista
+     */
     public List<ImageMeta> getMeta(){
         return db.listImages().stream().map(ImageModel::getMeta).collect(Collectors.toList());
     }
 
+    /**
+     * Egy kép lekérése id alapján
+     * @param id A kép azonosítója
+     * @return byte tömb / a kép
+     * @throws Exception
+     */
     public byte[] getImageById(String id) throws Exception{
         Optional<ImageModel> img = db.listImages().stream().filter((e)->e.getMeta().getId().equals(id)).findFirst();
         if(img.isEmpty()){

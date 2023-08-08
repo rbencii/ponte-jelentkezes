@@ -1,12 +1,19 @@
 package hu.ponte.hr;
 
+import hu.ponte.hr.services.SignService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author zoltan
@@ -24,8 +31,14 @@ public class SignTest
 	};
 
 	@Test
-	public void test_01() {
-
+	public void test_01() throws Exception {
+		SignService signService = new SignService();
+		for (Map.Entry<String, String> entry :files.entrySet()) {
+			byte[] image = Objects.requireNonNull(getClass().getResourceAsStream("/images/" + entry.getKey())).readAllBytes();
+			MultipartFile file = new MockMultipartFile(entry.getKey(), image);
+			System.out.println(entry.getKey()+"->"+signService.verify(file,signService.signFile(file)));
+			assertTrue(signService.verify(file,signService.signFile(file)));
+		}
 	}
 
 

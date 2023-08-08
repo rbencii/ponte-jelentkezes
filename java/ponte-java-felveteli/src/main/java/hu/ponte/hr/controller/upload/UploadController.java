@@ -1,10 +1,7 @@
 package hu.ponte.hr.controller.upload;
 
-import hu.ponte.hr.model.ImageMeta;
-import hu.ponte.hr.model.ImageModel;
 import hu.ponte.hr.services.ImageStore;
 import hu.ponte.hr.services.SignService;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 
 @Component
 @RequestMapping("api/file")
@@ -26,9 +23,11 @@ public class UploadController
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
-    public String handleFormUpload(@RequestParam("file") MultipartFile file) throws Exception {
-        String result = signService.signFile(file);
-        System.out.println(signService.verify(file,result));
-        return "ok";
+    public void handleFormUpload(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws Exception {
+        String digitalSign = signService.signFile(file);
+        int result = imageStore.addImage(file,digitalSign);
+        if(result!=1){
+            response.sendError(500);
+        }
     }
 }

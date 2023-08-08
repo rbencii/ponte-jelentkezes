@@ -4,13 +4,7 @@ package hu.ponte.hr.controller;
 import hu.ponte.hr.model.ImageMeta;
 import hu.ponte.hr.services.ImageStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletResponse;
-import java.util.Collections;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController()
@@ -21,12 +15,13 @@ public class ImagesController {
     private ImageStore imageStore;
 
     @GetMapping("meta")
-    public List<ImageMeta> listImages() {
-		return Collections.emptyList();
+    public List<ImageMeta> listImages() {return imageStore.getMeta();
     }
 
     @GetMapping("preview/{id}")
-    public void getImage(@PathVariable("id") String id, HttpServletResponse response) {
+    @ResponseBody
+    public byte[] getImage(@PathVariable("id") String id) throws Exception {
+        return imageStore.getImageById(id);
 	}
 
 }

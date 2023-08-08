@@ -10,10 +10,14 @@ import java.util.List;
 @Repository
 public class DB {
 
-    private static List<ImageModel> DB = new ArrayList<>();
+    private static final List<ImageModel> DB = new ArrayList<>();
 
     public int insertImageModel(String data, ImageMeta meta){
         DB.add(new ImageModel(data, meta));
         return 1;
+    }
+
+    public List<ImageModel> listImages(){
+        return new ArrayList<>(DB);
     }
 }

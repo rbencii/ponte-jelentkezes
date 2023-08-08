@@ -26,10 +26,9 @@ public class UploadController
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
-    public String handleFormUpload(@RequestParam("file") MultipartFile file) throws IOException {
-        byte[] _arr = Base64.encodeBase64(file.getBytes());
-        String result = new String(_arr);
-
+    public String handleFormUpload(@RequestParam("file") MultipartFile file) throws Exception {
+        String result = signService.signFile(file);
+        System.out.println(signService.verify(file,result));
         return "ok";
     }
 }
